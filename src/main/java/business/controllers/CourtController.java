@@ -13,11 +13,11 @@ public class CourtController {
     private CourtDao courtDao;
 
     public boolean createCourt(Court court) {
-        if (courtDao.findOne(court.getId()) != null) {
-            return false;
-        } else {
+        if (courtDao.findOne(court.getId()) == null) {
             courtDao.save(court);
             return true;
+        } else {
+            return false;
         }
     }
 

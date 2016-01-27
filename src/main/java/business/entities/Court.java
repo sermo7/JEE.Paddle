@@ -16,6 +16,7 @@ public class Court {
 
     public Court(int id) {
         this.id = id;
+        active = true;
     }
 
     public boolean isActive() {
