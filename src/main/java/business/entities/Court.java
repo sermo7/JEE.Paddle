@@ -11,6 +11,13 @@ public class Court {
 
     private boolean active;
 
+    public Court() {
+    }
+
+    public Court(int id) {
+        this.id = id;
+    }
+
     public boolean isActive() {
         return active;
     }

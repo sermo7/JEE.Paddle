@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import business.api.Uris;
+import business.utils.Role;
 
 @Configuration
 @EnableWebSecurity
@@ -35,6 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()//
                 .antMatchers(Uris.SERVLET_MAP + Uris.TOKENS + "/**").authenticated()//
+                .antMatchers(Uris.SERVLET_MAP + Uris.COURTS + "/**").hasRole(Role.ADMIN.name())//
                 .and().httpBasic();
     }
 

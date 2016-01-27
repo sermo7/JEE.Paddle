@@ -42,13 +42,13 @@ public class ApiExceptionHandler {
     }
 
     @ResponseStatus(HttpStatus.CONFLICT)
-    @ExceptionHandler({AlreadyExistUserFieldException.class})
+    @ExceptionHandler({AlreadyExistUserFieldException.class, AlreadyExistUserFieldException.class})
     @ResponseBody
     public ErrorMessage conflictRequest(ApiException exception) {
         ErrorMessage apiErrorMessage = new ErrorMessage(exception);
         return apiErrorMessage;
     }
-    
+
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler({Exception.class})
     @ResponseBody

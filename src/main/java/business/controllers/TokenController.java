@@ -1,5 +1,7 @@
 package business.controllers;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -9,6 +11,7 @@ import data.daos.TokenDao;
 import data.daos.UserDao;
 
 @Controller
+@Transactional
 public class TokenController {
 
     @Autowired
@@ -20,7 +23,11 @@ public class TokenController {
     public String create(String username) {
         User user = userDao.findDistinctByUsernameOrEmail(username, username);
         assert user != null;
-        Token token = new Token(user);
+        Token token = tokenDao.findByUser(user);
+        if (token != null) {
+            tokenDao.delete(token);
+        }
+        token = new Token(user);
         tokenDao.save(token);
         return token.getValue();
     }

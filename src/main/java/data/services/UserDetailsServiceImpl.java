@@ -11,9 +11,11 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import data.daos.AuthorizationDao;
+import data.daos.TokenDao;
 import data.daos.UserDao;
 import business.entities.User;
 import business.utils.Role;
@@ -28,16 +30,25 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private AuthorizationDao authorizationDao;
 
+    @Autowired
+    private TokenDao tokenDao;
+
     @Override
     public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
-
-        User user = userDao.findDistinctByUsernameOrEmail(username, username);
+        String password;
+        User user = tokenDao.findUserByValue(username);
         if (user == null) {
-            throw new UsernameNotFoundException("Usuario no encontrado");
+            user = userDao.findDistinctByUsernameOrEmail(username, username);
+            if (user == null) {
+                throw new UsernameNotFoundException("Usuario no encontrado");
+            } else {
+                password = user.getPassword();
+            }
         } else {
-            List<Role> roleList = authorizationDao.findRoleByUser(user);
-            return this.userBuilder(username, user.getPassword(), roleList);
+            password = new BCryptPasswordEncoder().encode(user.getUsername());
         }
+        List<Role> roleList = authorizationDao.findRoleByUser(user);
+        return this.userBuilder(user.getUsername(), password, roleList);
     }
 
     private org.springframework.security.core.userdetails.User userBuilder(String username, String password, List<Role> roles) {

@@ -1,4 +1,4 @@
-package business.api;
+package api;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -13,6 +13,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.HttpClientErrorException;
 
+import business.api.RestBuilder;
+import business.api.Uris;
 import business.wrapper.UserWrapper;
 import config.ITsApiConfig;
 

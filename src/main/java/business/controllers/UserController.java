@@ -1,5 +1,7 @@
 package business.controllers;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -9,6 +11,7 @@ import business.entities.Authorization;
 import business.entities.User;
 import business.utils.Role;
 
+@Transactional
 @Controller
 public class UserController {
 

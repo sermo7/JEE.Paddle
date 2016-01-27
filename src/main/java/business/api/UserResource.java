@@ -1,7 +1,6 @@
 package business.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,8 +24,7 @@ public class UserResource {
         validateField(userWrapper.getUsername(), "username");
         validateField(userWrapper.getEmail(), "email");
         validateField(userWrapper.getPassword(), "password");
-        String cryptPassword = new BCryptPasswordEncoder().encode(userWrapper.getPassword());
-        User user = new User(userWrapper.getUsername(), userWrapper.getEmail(), cryptPassword, userWrapper.getBirthDate());
+        User user = new User(userWrapper.getUsername(), userWrapper.getEmail(), userWrapper.getPassword(), userWrapper.getBirthDate());
         if (!this.userController.create(user)) {
             throw new AlreadyExistUserFieldException();
         }

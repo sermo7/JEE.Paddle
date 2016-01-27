@@ -1,4 +1,4 @@
-package business.api;
+package api;
 
 import static org.junit.Assert.assertTrue;
 
@@ -10,6 +10,8 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import business.api.RestBuilder;
+import business.api.Uris;
 import business.wrapper.UserWrapper;
 import config.ITsApiConfig;
 

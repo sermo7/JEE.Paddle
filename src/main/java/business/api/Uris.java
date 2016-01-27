@@ -9,5 +9,8 @@ public class Uris {
 
     //POST
     public static final String TOKENS = "/tokens";
+    
+    //POST
+    public static final String COURTS = "/courts";
 
 }
