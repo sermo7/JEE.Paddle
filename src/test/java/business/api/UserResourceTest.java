@@ -27,7 +27,7 @@ public class UserResourceTest {
     public void testBadRequestCreate() throws AlreadyExistUserFieldException {
         try {
             UserWrapper userWrapper = new UserWrapper("", "e1", "p1", new GregorianCalendar(1979, 07, 22));
-            userResource.create(userWrapper);
+            userResource.registration(userWrapper);
             fail();
         } catch (InvalidUserFieldException exception) {
             LogManager.getLogger(this.getClass()).debug("testBadRequestCreate (" + exception.getMessage() + ")");
@@ -38,7 +38,7 @@ public class UserResourceTest {
     public void testRepeatingFieldCreate() throws InvalidUserFieldException {
         try {
             UserWrapper userWrapper = new UserWrapper("u", "e1", "p1", new GregorianCalendar(1979, 07, 22));
-            userResource.create(userWrapper);
+            userResource.registration(userWrapper);
             fail();
         } catch (AlreadyExistUserFieldException exception) {
             LogManager.getLogger(this.getClass()).debug("testBadRequestCreate (" + exception.getMessage() + ")");
