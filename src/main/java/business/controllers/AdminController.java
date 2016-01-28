@@ -8,9 +8,13 @@ import data.services.PaddleService;
 @Controller
 public class AdminController {
     
-    @Autowired
     private PaddleService paddleService;
     
+    @Autowired
+    public void setPaddleService(PaddleService paddleService) {
+        this.paddleService = paddleService;
+    }
+
     public void deleteAllExceptAdmin() {
         paddleService.deleteAllExceptAdmin();
     }

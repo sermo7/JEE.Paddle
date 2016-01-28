@@ -16,8 +16,12 @@ import business.wrapper.UserWrapper;
 @RequestMapping(Uris.SERVLET_MAP + Uris.USERS)
 public class UserResource {
 
-    @Autowired
     private UserController userController;
+    
+    @Autowired
+    public void setUserController(UserController userController) {
+        this.userController = userController;
+    }
 
     @RequestMapping(method = RequestMethod.POST)
     public void registration(@RequestBody UserWrapper userWrapper) throws InvalidUserFieldException, AlreadyExistUserFieldException {
@@ -25,7 +29,7 @@ public class UserResource {
         validateField(userWrapper.getEmail(), "email");
         validateField(userWrapper.getPassword(), "password");
         User user = new User(userWrapper.getUsername(), userWrapper.getEmail(), userWrapper.getPassword(), userWrapper.getBirthDate());
-        if (!this.userController.create(user)) {
+        if (!this.userController.registration(user)) {
             throw new AlreadyExistUserFieldException();
         }
     }

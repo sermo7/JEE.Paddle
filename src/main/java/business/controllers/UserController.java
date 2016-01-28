@@ -12,13 +12,21 @@ import business.utils.Role;
 @Controller
 public class UserController {
 
-    @Autowired
     private UserDao userDao;
-    
-    @Autowired
+
     private AuthorizationDao authorizationDao;
 
-    public boolean create(User user) {
+    @Autowired
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+    @Autowired
+    public void setAuthorizationDao(AuthorizationDao authorizationDao) {
+        this.authorizationDao = authorizationDao;
+    }
+
+    public boolean registration(User user) {
         try {
             userDao.save(user);
             authorizationDao.save(new Authorization(user, Role.PLAYER));

@@ -16,8 +16,12 @@ import business.entities.Court;
 @RequestMapping(Uris.SERVLET_MAP + Uris.COURTS)
 public class CourtResource {
 
-    @Autowired
     private CourtController courtController;
+
+    @Autowired
+    public void setCourtController(CourtController courtController) {
+        this.courtController = courtController;
+    }
 
     @RequestMapping(method = RequestMethod.POST)
     public void createCourt(@RequestParam(required = true) int id) throws AlreadyExistCourtException {

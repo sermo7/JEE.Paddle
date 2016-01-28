@@ -9,8 +9,12 @@ import data.daos.CourtDao;
 @Controller
 public class CourtController {
 
-    @Autowired
     private CourtDao courtDao;
+
+    @Autowired
+    public void setCourtDao(CourtDao courtDao) {
+        this.courtDao = courtDao;
+    }
 
     public boolean createCourt(Court court) {
         if (courtDao.findOne(court.getId()) == null) {

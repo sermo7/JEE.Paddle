@@ -14,13 +14,21 @@ import data.daos.UserDao;
 @Transactional
 public class TokenController {
 
-    @Autowired
     private TokenDao tokenDao;
 
-    @Autowired
     private UserDao userDao;
 
-    public String create(String username) {
+    @Autowired
+    public void setTokenDao(TokenDao tokenDao) {
+        this.tokenDao = tokenDao;
+    }
+
+    @Autowired
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+    public String login(String username) {
         User user = userDao.findDistinctByUsernameOrEmail(username, username);
         assert user != null;
         Token token = tokenDao.findByUser(user);
