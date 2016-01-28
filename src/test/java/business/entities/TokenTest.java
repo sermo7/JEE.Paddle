@@ -1,6 +1,7 @@
 package business.entities;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotEquals;
 
 import java.util.Calendar;
 

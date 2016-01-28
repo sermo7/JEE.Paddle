@@ -6,19 +6,13 @@ import static org.junit.Assert.fail;
 import org.apache.logging.log4j.LogManager;
 import org.junit.After;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.http.HttpStatus;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.HttpClientErrorException;
 
 import business.api.Uris;
 import business.wrapper.UserWrapper;
 import business.wrapper.UserWrapperBuilder;
-import config.ITsApiConfig;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {ITsApiConfig.class})
 public class UserResourceFunctionalTesting {
 
     @Test

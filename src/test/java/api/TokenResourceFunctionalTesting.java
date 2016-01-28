@@ -5,14 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.apache.logging.log4j.LogManager;
 import org.junit.After;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import config.ITsApiConfig;
-
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {ITsApiConfig.class})
 public class TokenResourceFunctionalTesting {
 
     @Test
