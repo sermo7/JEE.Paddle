@@ -20,13 +20,13 @@ public class Populate {
 
     @Autowired
     private UserDao userDao;
-    
+
     @Autowired
     private AuthorizationDao authorizationDao;
-    
+
     @PostConstruct
-    public void createDefaultAdmin(){
-        User admin = new User("admin","admin@gmail.com","admin",new GregorianCalendar(1979, 07, 22));
+    public void createDefaultAdmin() {
+        User admin = new User("admin", "admin@gmail.com", "admin", new GregorianCalendar(1979, 07, 22));
         User adminSaved = userDao.findDistinctByUsernameOrEmail(admin.getUsername(), admin.getEmail());
         if (adminSaved == null) {
             userDao.save(admin);

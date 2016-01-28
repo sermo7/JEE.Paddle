@@ -1,6 +1,7 @@
 package data.daos;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.Calendar;
 
@@ -26,6 +27,13 @@ public class UserDaoITest {
     public void testCreate() {
         userDao.save(new User("u","e","p",Calendar.getInstance()));
         assertEquals(1, userDao.count());
+    }
+    
+    @Test
+    public void testFindDistinctByUsernameOrEmail(){
+        userDao.save(new User("u","u@gmail.com","p",Calendar.getInstance()));
+        assertNotNull(userDao.findDistinctByUsernameOrEmail("u", "u"));
+        assertNotNull(userDao.findDistinctByUsernameOrEmail("u@gmail.com", "u@gmail.com"));
     }
 
     @After

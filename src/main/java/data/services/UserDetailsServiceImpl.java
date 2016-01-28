@@ -1,6 +1,7 @@
 package data.services;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -42,13 +43,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             if (user == null) {
                 throw new UsernameNotFoundException("Usuario no encontrado");
             } else {
-                password = user.getPassword();
+                return this.userBuilder(user.getUsername(), user.getPassword(), Arrays.asList(Role.AUTHENTICATED));
             }
         } else {
             password = new BCryptPasswordEncoder().encode(user.getUsername());
+            List<Role> roleList = authorizationDao.findRoleByUser(user);
+            return this.userBuilder(user.getUsername(), password, roleList);
         }
-        List<Role> roleList = authorizationDao.findRoleByUser(user);
-        return this.userBuilder(user.getUsername(), password, roleList);
     }
 
     private org.springframework.security.core.userdetails.User userBuilder(String username, String password, List<Role> roles) {

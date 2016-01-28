@@ -1,7 +1,7 @@
 package business.utils;
 
 public enum Role {
-    ADMIN, PLAYER, TRAINER;
+    ADMIN, PLAYER, TRAINER, AUTHENTICATED;
 
     public String roleName() {
         return "ROLE_" + this.toString();
