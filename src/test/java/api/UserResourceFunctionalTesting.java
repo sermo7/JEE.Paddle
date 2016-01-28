@@ -19,7 +19,7 @@ import config.ITsApiConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ITsApiConfig.class})
-public class UserResourceIT {
+public class UserResourceFunctionalTesting {
 
     @Test
     public void testCreate() {

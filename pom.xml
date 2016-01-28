@@ -78,15 +78,15 @@
 				</property>
 			</activation>
 			<properties>
-				<logs.level>debug</logs.level>
+				<logs.level>error</logs.level>
 				<logs.path>../logs</logs.path>
-				<database.user>miw33</database.user>
-				<database.password>289345117</database.password>
-				<database.url>jdbc:mysql://localhost:3306/${database.user}</database.url>
+                <database.url>jdbc:mysql://localhost:3306/paddle</database.url>
+				<database.user>root</database.user>
+				<database.password></database.password>
 				<!-- validate, create sólo una vez, cada vez que cambie la estructura 
 					de las tablas -->
 				<hibernate.hbm2ddl.auto>validate</hibernate.hbm2ddl.auto>
-				<tomcat.url>http://art83.etsisi.upm.es:80/manager/text</tomcat.url>
+				<tomcat.url>http://localhost:8080/manager/text</tomcat.url>
 			</properties>
 		</profile>
 		<!-- mvn install -Denvironment.type=production -->

@@ -13,7 +13,7 @@ import config.ITsApiConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ITsApiConfig.class})
-public class TokenResourceIT {
+public class TokenResourceFunctionalTesting {
 
     @Test
     public void testLoginPlayer() {

@@ -17,7 +17,7 @@ import config.TestsPersistenceConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {PersistenceConfig.class, TestsPersistenceConfig.class})
-public class UserDaoTest {
+public class UserDaoITest {
 
     @Autowired
     private UserDao userDao;

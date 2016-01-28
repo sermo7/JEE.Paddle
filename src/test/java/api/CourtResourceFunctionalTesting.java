@@ -17,7 +17,7 @@ import config.ITsApiConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ITsApiConfig.class})
-public class CourtResourceIT {
+public class CourtResourceFunctionalTesting {
 
     @Test
     public void testCreateCourt() {
