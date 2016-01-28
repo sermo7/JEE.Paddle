@@ -1,4 +1,4 @@
-package business.api;
+package api;
 
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
@@ -41,6 +41,16 @@ public class RestBuilder<T> {
 
     public RestBuilder<T> path(String path) {
         this.uri = this.uri + path;
+        return this;
+    }
+
+    public RestBuilder<T> pathId(int path) {
+        this.uri = this.uri + "/" + path;
+        return this;
+    }
+    
+    public RestBuilder<T> pathId(String path) {
+        this.uri = this.uri + "/" + path;
         return this;
     }
 

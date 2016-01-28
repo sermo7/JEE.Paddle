@@ -3,8 +3,6 @@ package business.wrapper;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import business.api.exceptions.InvalidUserFieldException;
-
 public class UserWrapper {
 
     private String username;
@@ -29,7 +27,7 @@ public class UserWrapper {
         return username;
     }
 
-    public void setUsername(String username) throws InvalidUserFieldException {
+    public void setUsername(String username) {
         this.username = username;
     }
 

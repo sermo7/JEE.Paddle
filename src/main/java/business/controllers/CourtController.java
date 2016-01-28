@@ -21,4 +21,15 @@ public class CourtController {
         }
     }
 
+    public boolean changeCourtActivation(int id, boolean active) {
+        Court court = courtDao.findOne(id);
+        if (court != null) {
+            court.setActive(active);
+            courtDao.save(court);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
