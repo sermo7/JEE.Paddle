@@ -37,9 +37,9 @@ public class ReserveResource {
     }
 
     @RequestMapping(value = Uris.AVAILABILITY, method = RequestMethod.GET)
-    public Availability showAvailability(@RequestParam(defaultValue = "-1") long day) throws InvalidDateException {
+    public Availability showAvailability(@RequestParam(required=false) Long day) throws InvalidDateException {
         Calendar calendarDay = Calendar.getInstance();
-        if (day != -1) {
+        if (day != null) {
             calendarDay.setTimeInMillis(day);
             this.validateDay(calendarDay);
         }
