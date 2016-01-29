@@ -11,6 +11,7 @@ import business.api.exceptions.AlreadyExistUserFieldException;
 import business.api.exceptions.ApiException;
 import business.api.exceptions.ErrorMessage;
 import business.api.exceptions.InvalidCourtReserveException;
+import business.api.exceptions.InvalidDateException;
 import business.api.exceptions.InvalidUserFieldException;
 import business.api.exceptions.MalformedHeaderException;
 import business.api.exceptions.UnauthorizedException;
@@ -35,7 +36,7 @@ public class ApiExceptionHandler {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler({MalformedHeaderException.class, InvalidUserFieldException.class})
+    @ExceptionHandler({MalformedHeaderException.class, InvalidUserFieldException.class, InvalidDateException.class})
     @ResponseBody
     public ErrorMessage badRequest(ApiException exception) {
         ErrorMessage apiErrorMessage = new ErrorMessage(exception);
@@ -50,12 +51,12 @@ public class ApiExceptionHandler {
         return apiErrorMessage;
     }
 
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler({Exception.class})
-    @ResponseBody
-    public ErrorMessage exception(Exception exception) {
-        ErrorMessage apiErrorMessage = new ErrorMessage(exception);
-        return apiErrorMessage;
-    }
+    // @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    // @ExceptionHandler({Exception.class})
+    // @ResponseBody
+    // public ErrorMessage exception(Exception exception) {
+    // ErrorMessage apiErrorMessage = new ErrorMessage(exception);
+    // return apiErrorMessage;
+    // }
 
 }

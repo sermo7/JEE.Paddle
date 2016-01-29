@@ -62,7 +62,7 @@ public class Reserve {
 
     @Override
     public String toString() {
-        String time = new SimpleDateFormat("HH:00 dd-MMM-yyyy ").format(date);
+        String time = new SimpleDateFormat("HH:00 dd-MMM-yyyy ").format(date.getTime());
         return "Reserve [id=" + id + ", courtId=" + court.getId() + ", date=" + time + "]";
     }
 

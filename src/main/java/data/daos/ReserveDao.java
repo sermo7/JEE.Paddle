@@ -1,10 +1,16 @@
 package data.daos;
 
+import java.util.Calendar;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import business.entities.Court;
 import business.entities.Reserve;
 
 public interface ReserveDao extends JpaRepository<Reserve, Integer> {
-    //TODO
-    //List<Reserve> findByStartDateBetween(Calendar date1, Calendar date2);
+    
+    List<Reserve> findByDateBetween(Calendar date1, Calendar date2);
+
+    Reserve findByCourtAndDate(Court court, Calendar date);
 }

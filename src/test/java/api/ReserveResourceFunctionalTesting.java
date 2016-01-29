@@ -3,6 +3,7 @@ package api;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import org.apache.logging.log4j.LogManager;
 import org.junit.After;
 import org.junit.Test;
 
@@ -13,18 +14,19 @@ public class ReserveResourceFunctionalTesting {
 
     RestService restService = new RestService();
 
-    // @Test
+    @Test
     public void testshowAvailability() {
-        final int COURTS = 1;
-        RestService restService = new RestService();
-        for (int i = 0; i < COURTS; i++) {
-            restService.createCourt("" + i);
-        }
+        restService.createCourt("1");
+        restService.createCourt("2");
         String token = restService.registerAndLoginPlayer();
-        String day = "" + new GregorianCalendar(2016, 00, 29).getTimeInMillis();
+        Calendar day = new GregorianCalendar(2016, 00, 29, 12, 0);
+        new RestBuilder<String>(RestService.URL).path(Uris.RESERVES).basicAuth(token, "").body(new AvailableTime(1, day)).post().build();
+        day = new GregorianCalendar(2016, 00, 29, 14, 0);
+        new RestBuilder<String>(RestService.URL).path(Uris.RESERVES).basicAuth(token, "").body(new AvailableTime(2, day)).post().build();
+        String day2 = "" + new GregorianCalendar(2016, 00, 29).getTimeInMillis();
         String response = new RestBuilder<String>(RestService.URL).path(Uris.RESERVES).path(Uris.AVAILABILITY).basicAuth(token, "")
-                .param("day", day).clazz(String.class).get().build();
-        System.out.println(("<<<< " + response));
+                .param("day", day2).clazz(String.class).get().build();
+        LogManager.getLogger(this.getClass()).info("testshowAvailability (" + response + ")");
     }
 
     @Test

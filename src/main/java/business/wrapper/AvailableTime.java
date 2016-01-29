@@ -36,7 +36,7 @@ public class AvailableTime {
 
     @Override
     public String toString() {
-        String timeString = new SimpleDateFormat("dd-MMM-yyyy HH:mm").format(time.getTime());
+        String timeString = new SimpleDateFormat("HH:00").format(time.getTime());
         return "AvailableTime [courtId=" + courtId + ", time=" + timeString + "]";
     }
 
