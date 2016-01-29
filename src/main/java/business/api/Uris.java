@@ -5,6 +5,7 @@ public class Uris {
     public static final String SERVLET_MAP = "/api/v0";
 
     public static final String ID = "/{id}";
+    
 
     public static final String ADMINS = "/admins";
     
@@ -16,7 +17,12 @@ public class Uris {
     
     //POST
     public static final String COURTS = "/courts";
-
+    
     public static final String ACTIVE = "/active";
+    
+    
+    public static final String RESERVES = "/reserves";
+    
+    public static final String AVAILABILITY = "/availability";
 
 }

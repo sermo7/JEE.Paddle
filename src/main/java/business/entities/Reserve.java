@@ -20,12 +20,12 @@ public class Reserve {
     @JoinColumn
     private Court court;
 
-    private Calendar calendar;
+    private Calendar date;
 
-    public Reserve(Court court, Calendar calendar) {
+    public Reserve(Court court, Calendar date) {
         super();
         this.court = court;
-        this.calendar = calendar;
+        this.date = date;
     }
 
     public Reserve() {
@@ -39,8 +39,8 @@ public class Reserve {
         return court;
     }
 
-    public Calendar getCalendar() {
-        return calendar;
+    public Calendar getDate() {
+        return date;
     }
 
     @Override
@@ -62,8 +62,8 @@ public class Reserve {
 
     @Override
     public String toString() {
-        String time = new SimpleDateFormat("HH:00 dd-MMM-yyyy ").format(calendar);
-        return "Reserve [id=" + id + ", courtId=" + court.getId() + ", calendar=" + time + "]";
+        String time = new SimpleDateFormat("HH:00 dd-MMM-yyyy ").format(date);
+        return "Reserve [id=" + id + ", courtId=" + court.getId() + ", date=" + time + "]";
     }
 
 }

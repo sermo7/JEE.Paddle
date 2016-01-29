@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import business.api.exceptions.AlreadyExistUserFieldException;
 import business.api.exceptions.ApiException;
 import business.api.exceptions.ErrorMessage;
+import business.api.exceptions.InvalidCourtReserveException;
 import business.api.exceptions.InvalidUserFieldException;
 import business.api.exceptions.MalformedHeaderException;
 import business.api.exceptions.UnauthorizedException;
@@ -42,7 +43,7 @@ public class ApiExceptionHandler {
     }
 
     @ResponseStatus(HttpStatus.CONFLICT)
-    @ExceptionHandler({AlreadyExistUserFieldException.class, AlreadyExistUserFieldException.class})
+    @ExceptionHandler({AlreadyExistUserFieldException.class, AlreadyExistUserFieldException.class, InvalidCourtReserveException.class})
     @ResponseBody
     public ErrorMessage conflictRequest(ApiException exception) {
         ErrorMessage apiErrorMessage = new ErrorMessage(exception);

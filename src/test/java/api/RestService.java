@@ -10,9 +10,7 @@ public class RestService {
     public static final String URL = "http://localhost:8080/JEE.Paddle.0.0.1-SNAPSHOT" + Uris.SERVLET_MAP;
 
     public void deleteAll() {
-        TokenWrapper token = new RestBuilder<TokenWrapper>(RestService.URL).path(Uris.TOKENS).basicAuth("admin", "admin")
-                .clazz(TokenWrapper.class).post().build();
-        new RestBuilder<TokenWrapper>(RestService.URL).path(Uris.ADMINS).basicAuth(token.getToken(), "admin").delete().build();
+        new RestBuilder<TokenWrapper>(RestService.URL).path(Uris.ADMINS).basicAuth(this.loginAdmin(), "").delete().build();
     }
 
     public String loginAdmin() {
@@ -29,12 +27,8 @@ public class RestService {
         return token.getToken();
     }
     
-    public UserWrapper defaultPlayer(){
-        return  new UserWrapperBuilder().build();
-    }
-
     public void createCourt(String id) {
-        new RestBuilder<Object>(URL).path(Uris.COURTS).param("id", id).basicAuth(this.loginAdmin(), "admin").post().build();
+        new RestBuilder<Object>(URL).path(Uris.COURTS).param("id", id).basicAuth(this.loginAdmin(), "").post().build();
     }
 
 }

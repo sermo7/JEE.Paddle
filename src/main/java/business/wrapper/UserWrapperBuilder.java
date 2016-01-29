@@ -19,14 +19,17 @@ public class UserWrapperBuilder {
         userWrapper.setUsername(username);
         return this;
     }
+
     public UserWrapperBuilder email(String email) {
         userWrapper.setEmail(email);
         return this;
     }
+
     public UserWrapperBuilder password(String password) {
         userWrapper.setPassword(password);
         return this;
     }
+
     public UserWrapperBuilder birthDate(Calendar birthDate) {
         userWrapper.setBirthDate(birthDate);
         return this;

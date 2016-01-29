@@ -1,5 +1,7 @@
 package business.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -17,23 +19,31 @@ public class CourtController {
     }
 
     public boolean createCourt(Court court) {
-        if (courtDao.findOne(court.getId()) == null) {
+        if (courtDao.exists(court.getId())) {
+            return false;
+        } else {
             courtDao.save(court);
             return true;
-        } else {
-            return false;
         }
     }
 
     public boolean changeCourtActivation(int id, boolean active) {
         Court court = courtDao.findOne(id);
-        if (court != null) {
+        if (court == null) {
+            return false;
+        } else {
             court.setActive(active);
             courtDao.save(court);
             return true;
-        } else {
-            return false;
         }
+    }
+
+    public List<Court> showCourts() {
+        return courtDao.findAll();
+    }
+
+    public Court read(int courtId) {
+        return courtDao.findOne(courtId);
     }
 
 }

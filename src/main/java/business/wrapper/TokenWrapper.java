@@ -1,6 +1,7 @@
 package business.wrapper;
 
 public class TokenWrapper {
+
     private String token;
 
     public TokenWrapper() {
