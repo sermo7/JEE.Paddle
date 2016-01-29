@@ -47,13 +47,14 @@ public class ReserveResource {
         calendarDay.set(Calendar.MINUTE, 0);
         calendarDay.set(Calendar.SECOND, 0);
         calendarDay.set(Calendar.MILLISECOND, 0);
-        //TODO controlar que no es un dia pasado
         return reserveController.showAvailability(calendarDay);
     }
     
     private void validateDay(Calendar day) throws InvalidDateException{
-        if(Calendar.getInstance().after(day)){
-            throw new InvalidDateException("La fecha no puede ser pasada");
+        Calendar calendarDay = Calendar.getInstance();
+        calendarDay.add(Calendar.DAY_OF_YEAR, -1);
+        if(calendarDay.after(day)){
+            throw new InvalidDateException("La fecha no puede ser un día pasado");
         }
     }
 
