@@ -15,13 +15,13 @@ import business.api.exceptions.InvalidDateException;
 import business.api.exceptions.InvalidUserFieldException;
 import business.api.exceptions.MalformedHeaderException;
 import business.api.exceptions.UnauthorizedException;
-import business.api.exceptions.UserIdNotExistException;
+import business.api.exceptions.NotFoundUserIdException;
 
 @ControllerAdvice
 public class ApiExceptionHandler {
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler({UserIdNotExistException.class})
+    @ExceptionHandler({NotFoundUserIdException.class})
     @ResponseBody
     public ErrorMessage notFoundRequest(ApiException exception) {
         ErrorMessage apiErrorMessage = new ErrorMessage(exception);

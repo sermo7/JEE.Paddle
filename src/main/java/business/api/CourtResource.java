@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import business.api.exceptions.AlreadyExistCourtException;
-import business.api.exceptions.NonExistCourtIdException;
+import business.api.exceptions.AlreadyExistCourtIdException;
+import business.api.exceptions.NotFoundCourtIdException;
 import business.controllers.CourtController;
 import business.entities.Court;
 import business.wrapper.CourtState;
@@ -28,23 +28,23 @@ public class CourtResource {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void createCourt(@RequestParam(required = true) int id) throws AlreadyExistCourtException {
+    public void createCourt(@RequestParam(required = true) int id) throws AlreadyExistCourtIdException {
         if (!this.courtController.createCourt(new Court(id))) {
-            throw new AlreadyExistCourtException();
+            throw new AlreadyExistCourtIdException();
         }
     }
 
     @RequestMapping(value = Uris.ID + Uris.ACTIVE, method = RequestMethod.POST)
-    public void changeCourtActivationTrue(@PathVariable int id) throws NonExistCourtIdException {
+    public void changeCourtActivationTrue(@PathVariable int id) throws NotFoundCourtIdException {
         if (!courtController.changeCourtActivation(id, true)) {
-            throw new NonExistCourtIdException("id: " + id);
+            throw new NotFoundCourtIdException("id: " + id);
         }
     }
 
     @RequestMapping(value = Uris.ID + Uris.ACTIVE, method = RequestMethod.DELETE)
-    public void changeCourtActivationFalse(@PathVariable int id) throws NonExistCourtIdException {
+    public void changeCourtActivationFalse(@PathVariable int id) throws NotFoundCourtIdException {
         if (!courtController.changeCourtActivation(id, true)) {
-            throw new NonExistCourtIdException("id: " + id);
+            throw new NotFoundCourtIdException("id: " + id);
         }
     }
 

@@ -1,18 +1,18 @@
 package business.api.exceptions;
 
-public class NonExistCourtIdException extends ApiException {
+public class AlreadyExistCourtIdException extends ApiException {
 
     private static final long serialVersionUID = -1344640670884805385L;
 
-    public static final String DESCRIPTION = "La pista referenciada no existe";
+    public static final String DESCRIPTION = "Ya existe la pista";
 
     public static final int CODE = 1;
 
-    public NonExistCourtIdException() {
+    public AlreadyExistCourtIdException() {
         this("");
     }
 
-    public NonExistCourtIdException(String detail) {
+    public AlreadyExistCourtIdException(String detail) {
         super(DESCRIPTION + ". " + detail, CODE);
     }
 
