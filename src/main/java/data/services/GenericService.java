@@ -10,7 +10,7 @@ import data.daos.TokenDao;
 import data.daos.UserDao;
 
 @Service
-public class PaddleService {
+public class GenericService {
     
     @Autowired
     private Populate populate;

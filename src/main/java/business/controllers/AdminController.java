@@ -3,20 +3,20 @@ package business.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import data.services.PaddleService;
+import data.services.GenericService;
 
 @Controller
 public class AdminController {
     
-    private PaddleService paddleService;
+    private GenericService genericService;
     
     @Autowired
-    public void setPaddleService(PaddleService paddleService) {
-        this.paddleService = paddleService;
+    public void setGenericService(GenericService genericService) {
+        this.genericService = genericService;
     }
 
     public void deleteAllExceptAdmin() {
-        paddleService.deleteAllExceptAdmin();
+        genericService.deleteAllExceptAdmin();
     }
 
 }

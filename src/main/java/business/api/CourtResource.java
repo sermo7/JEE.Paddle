@@ -1,6 +1,5 @@
 package business.api;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,12 +49,7 @@ public class CourtResource {
 
     @RequestMapping(method = RequestMethod.GET)
     public List<CourtState> showCourts() {
-        List<Court> courtList = courtController.showCourts();
-        List<CourtState> courtStateWrapperList = new ArrayList<>();
-        for (Court court : courtList) {
-            courtStateWrapperList.add(new CourtState(court.getId(), court.isActive()));
-        }
-        return courtStateWrapperList;
+        return courtController.showCourts();
     }
 
 }

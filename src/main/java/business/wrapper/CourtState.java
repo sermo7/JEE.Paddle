@@ -1,5 +1,7 @@
 package business.wrapper;
 
+import business.entities.Court;
+
 public class CourtState {
     
     private int courtId;
@@ -14,7 +16,11 @@ public class CourtState {
         this.courtId = courtId;
         this.active = active;
     }
-
+    
+    public CourtState(Court court) {
+        this(court.getId(),court.isActive());
+    }
+    
     public int getCourtId() {
         return courtId;
     }

@@ -1,11 +1,13 @@
 package business.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import business.entities.Court;
+import business.wrapper.CourtState;
 import data.daos.CourtDao;
 
 @Controller
@@ -38,8 +40,12 @@ public class CourtController {
         }
     }
 
-    public List<Court> showCourts() {
-        return courtDao.findAll();
+    public List<CourtState> showCourts() {
+        List<CourtState> courtStateList = new ArrayList<>();
+        for (Court court : courtDao.findAll()) {
+            courtStateList.add(new CourtState(court));
+        }
+        return courtStateList;
     }
 
     public Court read(int courtId) {
