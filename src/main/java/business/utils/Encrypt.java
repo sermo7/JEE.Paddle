@@ -56,7 +56,7 @@ public class Encrypt {
 
     public String encryptInBase64(String message) {
         byte[] digest = this.encrypt(message);
-        return Base64.getEncoder().encodeToString(digest);
+        return Base64.getUrlEncoder().encodeToString(digest).replace('=', '_');
     }
 
 }

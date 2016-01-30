@@ -28,6 +28,7 @@ public class Authorization {
     }
 
     public Authorization(User user, Role role) {
+        assert user != null && role != null;
         this.user = user;
         this.role = role;
     }
