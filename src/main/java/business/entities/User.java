@@ -85,14 +85,16 @@ public class User {
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
         if (obj == null) {
             return false;
-        } else if (getClass() != obj.getClass()) {
-            return false;
-        } else {
-            User other = (User) obj;
-            return username.equals(other.username) || email.equals(other.email);
         }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        return id == ((User) obj).id;
     }
 
     @Override

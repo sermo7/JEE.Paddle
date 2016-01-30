@@ -50,14 +50,16 @@ public class Reserve {
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
         if (obj == null) {
             return false;
-        } else if (getClass() != obj.getClass()) {
-            return false;
-        } else {
-            Reserve other = (Reserve) obj;
-            return id == other.id;
         }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        return id == ((Reserve) obj).id;
     }
 
     @Override

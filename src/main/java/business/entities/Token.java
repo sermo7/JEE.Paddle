@@ -53,14 +53,16 @@ public class Token {
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
         if (obj == null) {
             return false;
-        } else if (getClass() != obj.getClass()) {
-            return false;
-        } else {
-            Token other = (Token) obj;
-            return value.equals(other.value);
         }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        return id == ((Token) obj).id;
     }
 
     @Override
