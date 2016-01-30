@@ -8,7 +8,7 @@ import java.util.Base64;
 import org.apache.logging.log4j.LogManager;
 
 public class Encrypt {
-    
+
     public static final String SHA1 = "SHA-1";
 
     public static final String SHA256 = "SHA-256";
@@ -54,9 +54,10 @@ public class Encrypt {
         return hash.toString();
     }
 
-    public String encryptInBase64(String message) {
+    public String encryptInBase64UrlSafe(String message) {
         byte[] digest = this.encrypt(message);
-        return Base64.getUrlEncoder().encodeToString(digest).replace('=', '_');
+        String code64Url = Base64.getUrlEncoder().encodeToString(digest);
+        return code64Url.substring(0, code64Url.indexOf("="));
     }
-
+    
 }

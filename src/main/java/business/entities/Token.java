@@ -30,7 +30,7 @@ public class Token {
     public Token(User user) {
         assert user != null;
         this.user = user;
-        this.value = new Encrypt().encryptInBase64("" + user.getId() + user.getUsername() + Long.toString(new Date().getTime())
+        this.value = new Encrypt().encryptInBase64UrlSafe("" + user.getId() + user.getUsername() + Long.toString(new Date().getTime())
                 + user.getPassword());
     }
 
