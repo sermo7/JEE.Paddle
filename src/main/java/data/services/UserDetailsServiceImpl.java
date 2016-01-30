@@ -16,7 +16,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import data.daos.AuthorizationDao;
-import data.daos.TokenDao;
 import data.daos.UserDao;
 import business.entities.User;
 import business.utils.Role;
@@ -31,14 +30,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private AuthorizationDao authorizationDao;
 
-    @Autowired
-    private TokenDao tokenDao;
-
     @Override
     public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
-        User user = tokenDao.findUserByValue(username);
+        User user = userDao.findByTokenValue(username);
         if (user == null) {
-            user = userDao.findDistinctByUsernameOrEmail(username, username);
+            user = userDao.findByUsernameOrEmail(username);
             if (user == null) {
                 throw new UsernameNotFoundException("Usuario no encontrado");
             } else {

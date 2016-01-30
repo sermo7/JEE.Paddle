@@ -27,7 +27,7 @@ public class Populate {
     @PostConstruct
     public void createDefaultAdmin() {
         User admin = new User("admin", "admin@gmail.com", "admin", new GregorianCalendar(1979, 07, 22));
-        User adminSaved = userDao.findDistinctByUsernameOrEmail(admin.getUsername(), admin.getEmail());
+        User adminSaved = userDao.findByUsernameOrEmail(admin.getUsername());
         if (adminSaved == null) {
             userDao.save(admin);
             authorizationDao.save(new Authorization(admin, Role.ADMIN));

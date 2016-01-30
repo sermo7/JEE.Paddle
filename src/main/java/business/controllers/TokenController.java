@@ -29,7 +29,7 @@ public class TokenController {
     }
 
     public String login(String username) {
-        User user = userDao.findDistinctByUsernameOrEmail(username, username);
+        User user = userDao.findByUsernameOrEmail(username);
         assert user != null;
         Token token = tokenDao.findByUser(user);
         if (token != null) {
