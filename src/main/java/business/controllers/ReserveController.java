@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 
 import data.daos.CourtDao;
 import data.daos.ReserveDao;
+import data.daos.UserDao;
 import business.entities.Court;
 import business.entities.Reserve;
 import business.wrapper.Availability;
@@ -21,6 +22,8 @@ public class ReserveController {
     private ReserveDao reserveDao;
 
     private CourtDao courtDao;
+    
+    private UserDao userDao;
 
     @Autowired
     public void setReserveDao(ReserveDao reserveDao) {
@@ -30,6 +33,11 @@ public class ReserveController {
     @Autowired
     public void setCourtDao(CourtDao courtDao) {
         this.courtDao = courtDao;
+    }
+    
+    @Autowired
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     public Availability showAvailability(Calendar calendarDay) {
@@ -57,10 +65,11 @@ public class ReserveController {
         return new Availability(calendarDay, allTimesAvailable);
     }
 
-    public boolean reserveCourt(Reserve reserve) {
+    public boolean reserveCourt(Reserve reserve,String username) {
         if (reserveDao.findByCourtAndDate(reserve.getCourt(), reserve.getDate()) != null) {
             return false;
         }
+        reserve.setUser(userDao.findByUsernameOrEmail(username));
         reserveDao.save(reserve);
         return true;
     }

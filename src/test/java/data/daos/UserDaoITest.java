@@ -1,11 +1,9 @@
 package data.daos;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,28 +27,22 @@ public class UserDaoITest {
 
     @Test
     public void testCreate() {
-        daosService.createUsers(3);
-        assertTrue(userDao.count() >= 3);
+        assertTrue(userDao.count() >= 8);
     }
 
     @Test
     public void testFindDistinctByUsernameOrEmail() {
-        User[] users = daosService.createUsers(3);
-        assertNotNull(userDao.findByUsernameOrEmail(users[0].getUsername()));
-        assertNotNull(userDao.findByUsernameOrEmail(users[1].getEmail()));
+        User u1 = (User) daosService.getMap().get("u1");
+        assertEquals(u1, userDao.findByUsernameOrEmail(u1.getUsername()));
+        assertEquals(u1, userDao.findByUsernameOrEmail(u1.getEmail()));
         assertNull(userDao.findByUsernameOrEmail("kk"));
     }
 
     @Test
     public void testFindByTokenValue() {
-        Token[] tokens = daosService.createTokensAndUsers(3);
-        assertEquals(tokens[1].getUser(), userDao.findByTokenValue(tokens[1].getValue()));
+        User u1 = (User) daosService.getMap().get("u1");
+        Token t1 = (Token) daosService.getMap().get("tu1");
+        assertEquals(u1, userDao.findByTokenValue(t1.getValue()));
         assertNull(userDao.findByTokenValue("kk"));
     }
-
-    @After
-    public void deleteAll() {
-        daosService.deleteAll();
-    }
-
 }

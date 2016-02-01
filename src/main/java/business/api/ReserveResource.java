@@ -3,6 +3,8 @@ package business.api;
 import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -59,7 +61,7 @@ public class ReserveResource {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void reserveCourt(@RequestBody AvailableTime availableTime) throws InvalidCourtReserveException, InvalidDateException {
+    public void reserveCourt(@AuthenticationPrincipal User activeUser, @RequestBody AvailableTime availableTime) throws InvalidCourtReserveException, InvalidDateException {
         Court court = courtController.read(availableTime.getCourtId());
         if (court == null) {
             throw new InvalidCourtReserveException("" + availableTime.getCourtId());
@@ -73,7 +75,7 @@ public class ReserveResource {
         }
        this.validateDay(date);
         Reserve reserve = new Reserve(court, date);
-        if (!reserveController.reserveCourt(reserve)) {
+        if (!reserveController.reserveCourt(reserve,activeUser.getUsername())) {
             throw new InvalidCourtReserveException(availableTime.getCourtId() + "-" + availableTime.getTime());
 
         }

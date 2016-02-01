@@ -33,4 +33,6 @@ public class Populate {
             authorizationDao.save(new Authorization(admin, Role.ADMIN));
         }
     }
+    
+    
 }

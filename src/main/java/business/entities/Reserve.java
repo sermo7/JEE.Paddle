@@ -20,12 +20,20 @@ public class Reserve {
     @JoinColumn
     private Court court;
 
+    @ManyToOne
+    @JoinColumn
+    private User user;
+
     private Calendar date;
 
-    public Reserve(Court court, Calendar date) {
-        super();
+    public Reserve(Court court, User user, Calendar date) {
         this.court = court;
+        this.user = user;
         this.date = date;
+    }
+
+    public Reserve(Court court, Calendar date) {
+        this(court, null, date);
     }
 
     public Reserve() {
@@ -41,6 +49,14 @@ public class Reserve {
 
     public Calendar getDate() {
         return date;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

@@ -1,7 +1,8 @@
 package data.daos;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,27 +10,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import business.entities.Token;
 import business.entities.User;
+import business.utils.Role;
 import config.PersistenceConfig;
 import config.TestsPersistenceConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {PersistenceConfig.class, TestsPersistenceConfig.class})
-public class TokenDaoITest {
+public class AuthorizationDaoITest {
 
     @Autowired
-    private TokenDao tokenDao;
+    private AuthorizationDao authorizationDao;
 
     @Autowired
     private DaosService daosService;
 
     @Test
-    public void testFindByUser() {
-        Token token = (Token) daosService.getMap().get("tu1");
-        User user = (User) daosService.getMap().get("u4");
-        assertEquals(token, tokenDao.findByUser(token.getUser()));
-        assertNull(tokenDao.findByUser(user));
+    public void testFindRoleByUser() {
+        List<Role> roles = authorizationDao.findRoleByUser((User) daosService.getMap().get("u4"));
+        assertEquals(1, roles.size());
+        assertEquals(Role.PLAYER, roles.get(0));
     }
 
 }
