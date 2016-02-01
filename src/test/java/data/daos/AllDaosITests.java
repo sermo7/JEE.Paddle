@@ -8,7 +8,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({
     TokenDaoITest.class,
     UserDaoITest.class,
-    AuthorizationDaoITest.class
+    AuthorizationDaoITest.class,
+    ReserveDaoITest.class
 })
 public class AllDaosITests {
 

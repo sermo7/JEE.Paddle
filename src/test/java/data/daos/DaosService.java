@@ -45,11 +45,6 @@ public class DaosService {
     @PostConstruct
     public void populate() {
         map = new HashMap<>();
-        this.populateTest1();
-    }
-
-    public void populateTest1() {
-        map.clear();
         User[] users = this.createPlayers(0, 4);
         for (User user : users) {
             map.put(user.getUsername(), user);
@@ -64,9 +59,12 @@ public class DaosService {
         Calendar date = Calendar.getInstance();
         date.add(Calendar.DAY_OF_YEAR, 1);
         date.set(Calendar.HOUR_OF_DAY, 9);
+        date.set(Calendar.MINUTE, 0);
+        date.set(Calendar.SECOND, 0);
+        date.set(Calendar.MILLISECOND, 0);
         for (int i = 0; i < 4; i++) {
             date.add(Calendar.HOUR_OF_DAY, 1);
-            reserveDao.save(new Reserve(courtDao.findOne(i), users[i], date));
+            reserveDao.save(new Reserve(courtDao.findOne(i+1), users[i], date));
         }
     }
 
