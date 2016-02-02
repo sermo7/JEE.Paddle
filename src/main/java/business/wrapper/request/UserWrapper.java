@@ -1,4 +1,4 @@
-package business.wrapper;
+package business.wrapper.request;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

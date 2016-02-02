@@ -1,9 +1,9 @@
 package api;
 
 import business.api.Uris;
-import business.wrapper.TokenWrapper;
-import business.wrapper.UserWrapper;
-import business.wrapper.UserWrapperBuilder;
+import business.wrapper.request.UserWrapper;
+import business.wrapper.request.UserWrapperBuilder;
+import business.wrapper.response.TokenWrapper;
 
 public class RestService {
 

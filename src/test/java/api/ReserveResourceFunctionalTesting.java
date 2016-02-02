@@ -32,7 +32,6 @@ public class ReserveResourceFunctionalTesting {
 
     @Test
     public void testReserveCourt() {
-        // TODO Programando...
         restService.createCourt("1");
         restService.createCourt("2");
         String token = restService.registerAndLoginPlayer();

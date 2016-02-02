@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import business.entities.Court;
-import business.wrapper.CourtState;
+import business.wrapper.response.CourtState;
 import data.daos.CourtDao;
 
 @Controller

@@ -14,7 +14,7 @@ import data.daos.ReserveDao;
 import data.daos.UserDao;
 import business.entities.Court;
 import business.entities.Reserve;
-import business.wrapper.Availability;
+import business.wrapper.response.Availability;
 
 @Controller
 public class ReserveController {

@@ -13,7 +13,7 @@ import business.api.exceptions.AlreadyExistCourtIdException;
 import business.api.exceptions.NotFoundCourtIdException;
 import business.controllers.CourtController;
 import business.entities.Court;
-import business.wrapper.CourtState;
+import business.wrapper.response.CourtState;
 
 @RestController
 @RequestMapping(Uris.SERVLET_MAP + Uris.COURTS)

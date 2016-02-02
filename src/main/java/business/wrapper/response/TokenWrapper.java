@@ -1,4 +1,4 @@
-package business.wrapper;
+package business.wrapper.response;
 
 public class TokenWrapper {
 

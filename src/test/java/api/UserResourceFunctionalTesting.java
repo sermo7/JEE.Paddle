@@ -10,8 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.client.HttpClientErrorException;
 
 import business.api.Uris;
-import business.wrapper.UserWrapper;
-import business.wrapper.UserWrapperBuilder;
+import business.wrapper.request.UserWrapper;
+import business.wrapper.request.UserWrapperBuilder;
 
 public class UserResourceFunctionalTesting {
 

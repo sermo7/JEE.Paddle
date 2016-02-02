@@ -17,8 +17,8 @@ import business.controllers.CourtController;
 import business.controllers.ReserveController;
 import business.entities.Court;
 import business.entities.Reserve;
-import business.wrapper.Availability;
 import business.wrapper.AvailableTime;
+import business.wrapper.response.Availability;
 
 @RestController
 @RequestMapping(Uris.SERVLET_MAP + Uris.RESERVES)

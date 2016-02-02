@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import business.controllers.TokenController;
-import business.wrapper.TokenWrapper;
+import business.wrapper.response.TokenWrapper;
 
 @RestController
 @RequestMapping(Uris.SERVLET_MAP + Uris.TOKENS)

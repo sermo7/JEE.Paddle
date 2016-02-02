@@ -10,7 +10,7 @@ import business.api.exceptions.AlreadyExistUserFieldException;
 import business.api.exceptions.InvalidUserFieldException;
 import business.controllers.UserController;
 import business.entities.User;
-import business.wrapper.UserWrapper;
+import business.wrapper.request.UserWrapper;
 
 @RestController
 @RequestMapping(Uris.SERVLET_MAP + Uris.USERS)

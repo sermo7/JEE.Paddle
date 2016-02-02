@@ -9,8 +9,8 @@ import org.junit.Test;
 import business.api.exceptions.AlreadyExistUserFieldException;
 import business.api.exceptions.InvalidUserFieldException;
 import business.controllers.UserController;
-import business.wrapper.UserWrapper;
-import business.wrapper.UserWrapperBuilder;
+import business.wrapper.request.UserWrapper;
+import business.wrapper.request.UserWrapperBuilder;
 
 public class UserResourceTest {
 
