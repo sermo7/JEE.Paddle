@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import business.entities.Court;
 import business.wrapper.response.CourtState;
 import data.daos.CourtDao;
+import data.entities.Court;
 
 @Controller
 public class CourtController {

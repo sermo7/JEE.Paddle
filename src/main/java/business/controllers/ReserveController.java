@@ -12,8 +12,8 @@ import org.springframework.stereotype.Controller;
 import data.daos.CourtDao;
 import data.daos.ReserveDao;
 import data.daos.UserDao;
-import business.entities.Court;
-import business.entities.Reserve;
+import data.entities.Court;
+import data.entities.Reserve;
 import business.wrapper.response.Availability;
 
 @Controller

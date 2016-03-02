@@ -7,6 +7,9 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
+import data.entities.Token;
+import data.entities.User;
+
 public class TokenTest {
 
     @Test

@@ -1,4 +1,4 @@
-package business.entities;
+package data.entities;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

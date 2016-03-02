@@ -1,6 +1,6 @@
 package business.wrapper.response;
 
-import business.entities.Court;
+import data.entities.Court;
 
 public class CourtState {
     

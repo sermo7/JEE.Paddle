@@ -2,8 +2,8 @@ package business.api;
 
 import java.util.Calendar;
 
+import data.entities.User;
 import business.controllers.UserController;
-import business.entities.User;
 
 public class UserControllerMock extends UserController {
 

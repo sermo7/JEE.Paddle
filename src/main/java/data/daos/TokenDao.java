@@ -2,8 +2,8 @@ package data.daos;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import business.entities.Token;
-import business.entities.User;
+import data.entities.Token;
+import data.entities.User;
 
 public interface TokenDao extends JpaRepository<Token, Integer> {
 

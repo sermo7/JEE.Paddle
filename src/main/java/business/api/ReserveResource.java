@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import data.entities.Court;
+import data.entities.Reserve;
 import business.api.exceptions.InvalidCourtReserveException;
 import business.api.exceptions.InvalidDateException;
 import business.controllers.CourtController;
 import business.controllers.ReserveController;
-import business.entities.Court;
-import business.entities.Reserve;
 import business.wrapper.AvailableTime;
 import business.wrapper.response.Availability;
 

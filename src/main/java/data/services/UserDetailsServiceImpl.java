@@ -17,8 +17,8 @@ import org.springframework.stereotype.Service;
 
 import data.daos.AuthorizationDao;
 import data.daos.UserDao;
-import business.entities.Role;
-import business.entities.User;
+import data.entities.Role;
+import data.entities.User;
 
 @Service
 @Transactional

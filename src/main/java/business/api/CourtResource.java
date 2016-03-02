@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import data.entities.Court;
 import business.api.exceptions.AlreadyExistCourtIdException;
 import business.api.exceptions.NotFoundCourtIdException;
 import business.controllers.CourtController;
-import business.entities.Court;
 import business.wrapper.response.CourtState;
 
 @RestController

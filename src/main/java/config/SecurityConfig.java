@@ -12,8 +12,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import data.entities.Role;
 import business.api.Uris;
-import business.entities.Role;
 
 @Configuration
 @EnableWebSecurity

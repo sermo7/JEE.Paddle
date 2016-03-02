@@ -1,4 +1,4 @@
-package business.entities;
+package data.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

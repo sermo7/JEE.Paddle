@@ -1,4 +1,4 @@
-package business.entities;
+package data.entities;
 
 public enum Role {
     ADMIN, PLAYER, TRAINER, AUTHENTICATED;

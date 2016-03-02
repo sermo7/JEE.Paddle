@@ -11,13 +11,13 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import data.entities.Authorization;
+import data.entities.Court;
+import data.entities.Reserve;
+import data.entities.Role;
+import data.entities.Token;
+import data.entities.User;
 import data.services.GenericService;
-import business.entities.Authorization;
-import business.entities.Court;
-import business.entities.Reserve;
-import business.entities.Role;
-import business.entities.Token;
-import business.entities.User;
 
 @Service
 public class DaosService {

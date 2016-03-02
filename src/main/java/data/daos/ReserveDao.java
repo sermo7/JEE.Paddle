@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import business.entities.Court;
-import business.entities.Reserve;
+import data.entities.Court;
+import data.entities.Reserve;
 
 public interface ReserveDao extends JpaRepository<Reserve, Integer> {
     
