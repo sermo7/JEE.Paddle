@@ -1,6 +1,6 @@
 package spike;
 
-import business.utils.Role;
+import business.entities.Role;
 
 public class PruebaRole {
 

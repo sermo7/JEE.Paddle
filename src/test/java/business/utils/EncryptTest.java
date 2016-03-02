@@ -6,6 +6,8 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
+import business.entities.Encrypt;
+
 public class EncryptTest {
 
     @Test

@@ -13,7 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import business.api.Uris;
-import business.utils.Role;
+import business.entities.Role;
 
 @Configuration
 @EnableWebSecurity

@@ -9,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import business.utils.Encrypt;
-
 @Entity
 public class Token {
 

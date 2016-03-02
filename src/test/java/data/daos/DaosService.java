@@ -15,9 +15,9 @@ import data.services.GenericService;
 import business.entities.Authorization;
 import business.entities.Court;
 import business.entities.Reserve;
+import business.entities.Role;
 import business.entities.Token;
 import business.entities.User;
-import business.utils.Role;
 
 @Service
 public class DaosService {

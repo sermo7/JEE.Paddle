@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import business.entities.Authorization;
+import business.entities.Role;
 import business.entities.User;
-import business.utils.Role;
 
 public interface AuthorizationDao extends JpaRepository<Authorization, Integer> {
 

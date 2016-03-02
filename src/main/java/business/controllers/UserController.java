@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import data.daos.AuthorizationDao;
 import data.daos.UserDao;
 import business.entities.Authorization;
+import business.entities.Role;
 import business.entities.User;
-import business.utils.Role;
 
 @Controller
 public class UserController {

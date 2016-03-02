@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import business.entities.Authorization;
+import business.entities.Role;
 import business.entities.User;
-import business.utils.Role;
 import data.daos.AuthorizationDao;
 import data.daos.UserDao;
 
