@@ -7,12 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 import business.utils.Encrypt;
 
 @Entity
 public class Token {
+
     @Id
     @GeneratedValue
     private int id;
@@ -20,7 +21,7 @@ public class Token {
     @Column(unique = true, nullable = false)
     private String value;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn
     private User user;
 
