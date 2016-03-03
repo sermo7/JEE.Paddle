@@ -4,7 +4,7 @@ public class ResourceNames {
 
     public static final String PROPERTIES = "classpath:META-INF/application.properties";
 
-    public static final String ASPECT = "business.aspect";
+    public static final String ASPECT = "aspect";
 
     public static final String REST_API = "business.api";
 
