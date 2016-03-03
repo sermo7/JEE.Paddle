@@ -6,8 +6,10 @@ import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
+import config.ResourceNames;
 import data.daos.AuthorizationDao;
 import data.daos.UserDao;
 import data.entities.Authorization;
@@ -16,6 +18,7 @@ import data.entities.User;
 
 @Service
 @Transactional
+@PropertySource(ResourceNames.PROPERTIES)
 public class Populate {
 
     @Autowired
