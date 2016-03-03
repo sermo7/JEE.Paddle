@@ -13,7 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.client.HttpClientErrorException;
 
 import business.api.Uris;
-import business.wrapper.response.CourtState;
+import business.wrapper.CourtState;
 
 public class CourtResourceFunctionalTesting {
 

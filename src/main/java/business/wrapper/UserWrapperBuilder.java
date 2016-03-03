@@ -1,4 +1,4 @@
-package business.wrapper.request;
+package business.wrapper;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

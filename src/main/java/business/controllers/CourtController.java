@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import business.wrapper.response.CourtState;
+import business.wrapper.CourtState;
 import data.daos.CourtDao;
 import data.entities.Court;
 
@@ -20,11 +20,11 @@ public class CourtController {
         this.courtDao = courtDao;
     }
 
-    public boolean createCourt(Court court) {
-        if (courtDao.exists(court.getId())) {
+    public boolean createCourt(int courtId) {
+        if (courtDao.exists(courtId)) {
             return false;
         } else {
-            courtDao.save(court);
+            courtDao.save(new Court(courtId));
             return true;
         }
     }
@@ -48,8 +48,8 @@ public class CourtController {
         return courtStateList;
     }
 
-    public Court read(int courtId) {
-        return courtDao.findOne(courtId);
+    public boolean exist(int courtId) {
+        return courtDao.findOne(courtId) != null;
     }
 
 }

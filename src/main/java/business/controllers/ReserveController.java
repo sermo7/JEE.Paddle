@@ -14,7 +14,7 @@ import data.daos.ReserveDao;
 import data.daos.UserDao;
 import data.entities.Court;
 import data.entities.Reserve;
-import business.wrapper.response.Availability;
+import business.wrapper.Availability;
 
 @Controller
 public class ReserveController {
@@ -22,7 +22,7 @@ public class ReserveController {
     private ReserveDao reserveDao;
 
     private CourtDao courtDao;
-    
+
     private UserDao userDao;
 
     @Autowired
@@ -34,7 +34,7 @@ public class ReserveController {
     public void setCourtDao(CourtDao courtDao) {
         this.courtDao = courtDao;
     }
-    
+
     @Autowired
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
@@ -65,7 +65,8 @@ public class ReserveController {
         return new Availability(calendarDay, allTimesAvailable);
     }
 
-    public boolean reserveCourt(Reserve reserve,String username) {
+    public boolean reserveCourt(int courtId, Calendar date, String username) {
+        Reserve reserve = new Reserve(courtDao.findOne(courtId), date);
         if (reserveDao.findByCourtAndDate(reserve.getCourt(), reserve.getDate()) != null) {
             return false;
         }
