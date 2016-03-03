@@ -1,4 +1,4 @@
-package business.utils;
+package data.entities;
 
 import static org.junit.Assert.assertEquals;
 

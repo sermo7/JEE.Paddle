@@ -1,4 +1,4 @@
-package business.entities;
+package data.entities;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertNotEquals;
