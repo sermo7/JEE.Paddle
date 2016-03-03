@@ -40,7 +40,7 @@ public class ReserveController {
         this.userDao = userDao;
     }
 
-    public Availability showAvailability(Calendar calendarDay) {
+    public Availability showCourtAvailability(Calendar calendarDay) {
         Calendar endDay = (Calendar) calendarDay.clone();
         endDay.add(Calendar.DAY_OF_MONTH, 1);
         List<Court> courtList = courtDao.findAll();

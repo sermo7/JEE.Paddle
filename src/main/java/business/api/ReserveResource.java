@@ -47,7 +47,7 @@ public class ReserveResource {
         calendarDay.set(Calendar.MINUTE, 0);
         calendarDay.set(Calendar.SECOND, 0);
         calendarDay.set(Calendar.MILLISECOND, 0);
-        return reserveController.showAvailability(calendarDay);
+        return reserveController.showCourtAvailability(calendarDay);
     }
 
     private void validateDay(Calendar day) throws InvalidDateException {
