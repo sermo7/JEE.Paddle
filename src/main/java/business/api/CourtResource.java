@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import data.entities.Court;
 import business.api.exceptions.AlreadyExistCourtIdException;
 import business.api.exceptions.NotFoundCourtIdException;
 import business.controllers.CourtController;
-import business.wrapper.response.CourtState;
+import business.wrapper.CourtState;
 
 @RestController
 @RequestMapping(Uris.SERVLET_MAP + Uris.COURTS)
@@ -28,7 +27,7 @@ public class CourtResource {
 
     @RequestMapping(method = RequestMethod.POST)
     public void createCourt(@RequestParam(required = true) int id) throws AlreadyExistCourtIdException {
-        if (!this.courtController.createCourt(new Court(id))) {
+        if (!this.courtController.createCourt(id)) {
             throw new AlreadyExistCourtIdException();
         }
     }

@@ -3,6 +3,7 @@ package business.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import business.wrapper.UserWrapper;
 import data.daos.AuthorizationDao;
 import data.daos.UserDao;
 import data.entities.Authorization;
@@ -26,7 +27,8 @@ public class UserController {
         this.authorizationDao = authorizationDao;
     }
 
-    public boolean registration(User user) {
+    public boolean registration(UserWrapper userWrapper) {
+        User user = new User(userWrapper.getUsername(), userWrapper.getEmail(), userWrapper.getPassword(), userWrapper.getBirthDate());
         try {
             userDao.save(user);
             authorizationDao.save(new Authorization(user, Role.PLAYER));

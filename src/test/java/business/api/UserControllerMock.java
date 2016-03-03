@@ -2,26 +2,26 @@ package business.api;
 
 import java.util.Calendar;
 
-import data.entities.User;
 import business.controllers.UserController;
+import business.wrapper.UserWrapper;
 
 public class UserControllerMock extends UserController {
 
-    private User user = new User("", "", "", Calendar.getInstance());
+    private UserWrapper userWrapper= new UserWrapper("", "", "", Calendar.getInstance());
 
     @Override
-    public boolean registration(User user) {
-        boolean result = !this.user.getUsername().equals(user.getUsername()) && !this.user.getEmail().equals(user.getEmail());
-        this.user = user;
+    public boolean registration(UserWrapper userWrapper) {
+        boolean result = !this.userWrapper.getUsername().equals(userWrapper.getUsername()) && !this.userWrapper.getEmail().equals(userWrapper.getEmail());
+        this.userWrapper = userWrapper;
         return result;
     }
 
-    public User getUser() {
-        return user;
+    public UserWrapper getUserWrapper() {
+        return userWrapper;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserWrapper(UserWrapper userWrapper) {
+        this.userWrapper = userWrapper;
     }
 
 }

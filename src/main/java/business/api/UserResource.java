@@ -6,18 +6,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import data.entities.User;
 import business.api.exceptions.AlreadyExistUserFieldException;
 import business.api.exceptions.InvalidUserFieldException;
 import business.controllers.UserController;
-import business.wrapper.request.UserWrapper;
+import business.wrapper.UserWrapper;
 
 @RestController
 @RequestMapping(Uris.SERVLET_MAP + Uris.USERS)
 public class UserResource {
 
     private UserController userController;
-    
+
     @Autowired
     public void setUserController(UserController userController) {
         this.userController = userController;
@@ -28,8 +27,7 @@ public class UserResource {
         validateField(userWrapper.getUsername(), "username");
         validateField(userWrapper.getEmail(), "email");
         validateField(userWrapper.getPassword(), "password");
-        User user = new User(userWrapper.getUsername(), userWrapper.getEmail(), userWrapper.getPassword(), userWrapper.getBirthDate());
-        if (!this.userController.registration(user)) {
+        if (!this.userController.registration(userWrapper)) {
             throw new AlreadyExistUserFieldException();
         }
     }
