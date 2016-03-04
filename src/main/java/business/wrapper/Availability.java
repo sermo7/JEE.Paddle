@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Availability {
+
     private Calendar day;
 
     private List<AvailableTime> times;

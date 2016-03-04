@@ -3,7 +3,7 @@ package business.wrapper;
 import data.entities.Court;
 
 public class CourtState {
-    
+
     private int courtId;
 
     private boolean active;
@@ -16,11 +16,11 @@ public class CourtState {
         this.courtId = courtId;
         this.active = active;
     }
-    
+
     public CourtState(Court court) {
-        this(court.getId(),court.isActive());
+        this(court.getId(), court.isActive());
     }
-    
+
     public int getCourtId() {
         return courtId;
     }
@@ -41,5 +41,5 @@ public class CourtState {
     public String toString() {
         return "CourtStateWrapper [courtId=" + courtId + ", active=" + active + "]";
     }
-    
+
 }

@@ -68,7 +68,7 @@ public class ReserveResource {
         date.set(Calendar.MINUTE, 0);
         date.set(Calendar.SECOND, 0);
         date.set(Calendar.MILLISECOND, 0);
-        if (date.get(Calendar.HOUR_OF_DAY) < 9 || date.get(Calendar.HOUR_OF_DAY) > 23) {
+        if (!reserveController.rightTime(date.get(Calendar.HOUR_OF_DAY))) {
             throw new InvalidCourtReserveException(date.get(Calendar.HOUR_OF_DAY) + " fuera de rango");
         }
         this.validateDay(date);

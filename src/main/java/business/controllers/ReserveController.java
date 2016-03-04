@@ -19,6 +19,10 @@ import business.wrapper.Availability;
 @Controller
 public class ReserveController {
 
+    private static final int START_TIME = 9;
+
+    private static final int END_TIME = 23;
+
     private ReserveDao reserveDao;
 
     private CourtDao courtDao;
@@ -73,6 +77,10 @@ public class ReserveController {
         reserve.setUser(userDao.findByUsernameOrEmail(username));
         reserveDao.save(reserve);
         return true;
+    }
+
+    public boolean rightTime(int hour) {
+        return hour >= START_TIME && hour <= END_TIME;
     }
 
 }

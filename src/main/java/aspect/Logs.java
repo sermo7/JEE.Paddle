@@ -22,29 +22,29 @@ public class Logs {
     }
 
     @Before("allResources()")
-    public void adviceE(JoinPoint jp) {
+    public void apiRequestLog(JoinPoint jp) {
+        LogManager.getLogger(jp.getSignature().getDeclaringTypeName()).info("------------------------- o -------------------------");
         String log = jp.getSignature().getName() + " >>>";
         for (Object arg : jp.getArgs()) {
             log += "\n   ARG: " + arg;
         }
-        LogManager.getLogger(jp.getSignature().getDeclaringTypeName()).info("-----------------------------------");
         LogManager.getLogger(jp.getSignature().getDeclaringTypeName()).info(log);
     }
 
     @AfterReturning(pointcut = "allResources()", returning = "result")
-    public void adviceF(JoinPoint jp, Object result) {
-        String log = "<<< " + jp.getSignature().getName() + ": return: " + result;
+    public void apiResponseLog(JoinPoint jp, Object result) {
+        String log = "<<< Return << " + jp.getSignature().getName() + ": " + result;
         LogManager.getLogger(jp.getSignature().getDeclaringTypeName()).info(log);
     }
 
     @AfterThrowing(pointcut = "allResources()", throwing = "exception")
-    public void consejoJ(JoinPoint jp, Exception exception) {
-        String log = "<<< " + jp.getSignature().getName() + ": Exception: " + exception.getClass().getSimpleName();
+    public void apiResponseExceptionLog(JoinPoint jp, Exception exception) {
+        String log = "<<< Return Exception << " + jp.getSignature().getName() + ": " + exception.getClass().getSimpleName();
         LogManager.getLogger(jp.getSignature().getDeclaringTypeName()).info(log);
     }
 
     @Around("allResources()")
-    public Object consejoE(ProceedingJoinPoint pjp) throws Throwable {
+    public Object processTimeLog(ProceedingJoinPoint pjp) throws Throwable {
         Calendar before = Calendar.getInstance();
         Object obj = pjp.proceed();
         Calendar now = Calendar.getInstance();

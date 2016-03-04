@@ -17,7 +17,7 @@ import data.entities.Reserve;
 import data.entities.Role;
 import data.entities.Token;
 import data.entities.User;
-import data.services.GenericService;
+import data.services.DataService;
 
 @Service
 public class DaosService {
@@ -38,7 +38,7 @@ public class DaosService {
     private ReserveDao reserveDao;
 
     @Autowired
-    private GenericService genericService;
+    private DataService genericService;
 
     private Map<String, Object> map;
 

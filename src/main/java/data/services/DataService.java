@@ -10,7 +10,7 @@ import data.daos.TokenDao;
 import data.daos.UserDao;
 
 @Service
-public class GenericService {
+public class DataService {
     
     @Autowired
     private Populate populate;

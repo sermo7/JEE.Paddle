@@ -3,15 +3,15 @@ package business.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import data.services.GenericService;
+import data.services.DataService;
 
 @Controller
 public class AdminController {
     
-    private GenericService genericService;
+    private DataService genericService;
     
     @Autowired
-    public void setGenericService(GenericService genericService) {
+    public void setGenericService(DataService genericService) {
         this.genericService = genericService;
     }
 

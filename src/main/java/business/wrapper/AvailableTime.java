@@ -32,7 +32,6 @@ public class AvailableTime {
     public void setTime(Calendar time) {
         this.time = time;
     }
-    
 
     @Override
     public String toString() {
