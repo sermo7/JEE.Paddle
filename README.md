@@ -19,7 +19,14 @@
 1. Crear una Base de Datos llamada: `paddle`
 
 ### Documentación
+#### Casos de Uso
 ![Casos de uso](/docs/Paddle.UseCaseView.png "Casos de Uso")
+#### Arquitectura de paquetes
+![Casos de uso](/docs/Paddle.Architecture.png "Casos de Uso")
+#### Entidades
+![Casos de uso](/docs/Paddle.Entities.png "Casos de Uso")
+#### Daos
+![Casos de uso](/docs/Paddle.Daos.png "Casos de Uso")
 
 ###### Autor: Jesús Bernal Bermúdez U.P.M.
 
