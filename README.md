@@ -19,7 +19,7 @@
 1. Crear una Base de Datos llamada: `paddle`
 
 ### Documentación
-
+![Casos de uso](/blob/master/docs/Paddle.UseCaseView.png "Casos de Uso")
 
 ###### Autor: Jesús Bernal Bermúdez U.P.M.
 
