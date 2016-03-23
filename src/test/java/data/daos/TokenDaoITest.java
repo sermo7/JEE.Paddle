@@ -31,5 +31,16 @@ public class TokenDaoITest {
         assertEquals(token, tokenDao.findByUser(token.getUser()));
         assertNull(tokenDao.findByUser(user));
     }
+    
+    @Test
+    public void testremoveTokensExpired() {
+    	int totalSize = tokenDao.findAll().size();
+    	assertEquals(totalSize, 8);
+    	tokenDao.removeTokensExpired();
+    	int newSize = tokenDao.findAll().size();
+    	assertEquals(newSize, 4);
+    }
+    
+    
 
 }
