@@ -52,9 +52,15 @@ public class DaosService {
         for (Token token : this.createTokens(users)) {
             map.put("t" + token.getUser().getUsername(), token);
         }
+        
         for (User user : this.createPlayers(4, 4)) {
             map.put(user.getUsername(), user);
         }
+        
+        for (Token token : this.createExpiredTokens(this.createPlayers(8,4))) {
+            map.put("et" + token.getUser().getUsername(), token);
+        }
+        
         this.createCourts(1, 4);
         Calendar date = Calendar.getInstance();
         date.add(Calendar.DAY_OF_YEAR, 1);
@@ -89,6 +95,21 @@ public class DaosService {
         return tokenList;
     }
 
+    public List<Token> createExpiredTokens(User[] users) {
+        List<Token> tokenList = new ArrayList<>();
+        Token token;
+        for (User user : users) {
+            token = new Token(user);
+            Calendar dateToTest = Calendar.getInstance();
+        	dateToTest.add(Calendar.MINUTE, -60);
+        	token.setCreationDate(dateToTest);
+            tokenDao.save(token);
+            tokenList.add(token);
+        }
+        return tokenList;
+    }
+    
+    
     public void createCourts(int initial, int size) {
         for (int id = 0; id < size; id++) {
             courtDao.save(new Court(id + initial));
