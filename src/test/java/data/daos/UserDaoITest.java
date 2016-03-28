@@ -39,10 +39,12 @@ public class UserDaoITest {
     }
 
     @Test
-    public void testFindByTokenValue() {
-        User u1 = (User) daosService.getMap().get("u1");
+    public void testFindByValidNotExpiredToken() {
+    	User u1 = (User) daosService.getMap().get("u1");
         Token t1 = (Token) daosService.getMap().get("tu1");
-        //assertEquals(u1, userDao.findByTokenValue(t1.getValue()));
-        //assertNull(userDao.findByTokenValue("kk"));
+        Token tbad = (Token) daosService.getMap().get("etu9");
+        assertEquals (u1, userDao.findByValidNotExpiredToken(t1.getValue()));
+        assertNull (userDao.findByValidNotExpiredToken(tbad.getValue()));
+        assertNull (userDao.findByValidNotExpiredToken("kk"));
     }
 }
