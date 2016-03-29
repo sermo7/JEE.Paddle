@@ -1,6 +1,6 @@
 package data.entities;
 
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Training {
 
+	public static final int MAX_PUPILS = 4;
+		
     @Id
     @GeneratedValue
     private int id;
@@ -33,18 +35,34 @@ public class Training {
     private User trainer;
     
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<User> users;
+    private List<User> pupils;
     
-    public Training(Court court, User trainer, Calendar sdate, Calendar fdate, List<User> users) {
+    public Training(Court court, User trainer, Calendar sdate, Calendar fdate, List<User> pupils) {
         this.court = court;
         this.trainer = trainer;
         this.startDate = sdate;
         this.finishDate = fdate;
-        this.users = users;
+        this.pupils = pupils;
+    }
+    
+    public Training(Court court, User trainer, Calendar sdate, Calendar fdate) {
+        this.court = court;
+        this.trainer = trainer;
+        this.startDate = sdate;
+        this.finishDate = fdate;
+        this.pupils = new ArrayList<User>();
     }
 
 
-    public Training() {
+    public List<User> getPupils() {
+		return pupils;
+	}
+
+	public void setPupils(List<User> pupils) {
+		this.pupils = pupils;
+	}
+
+	public Training() {
     }
 
     public int getId() {
@@ -87,16 +105,6 @@ public class Training {
 	}
 
 
-	public List<User> getUsers() {
-		return users;
-	}
-
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
-
-
 	@Override
     public int hashCode() {
         return id;
@@ -118,7 +126,7 @@ public class Training {
 
     @Override
     public String toString() {
-        return "Training [id=" + id + ", courtId=" + court.getId() + ", startDate=" + startDate + ", finishDate=" + finishDate + ", trainer=" + trainer + ", + users=" + users + "]";
+        return "Training [id=" + id + ", courtId=" + court.getId() + ", startDate=" + startDate + ", finishDate=" + finishDate + ", trainer=" + trainer + ", + pupils=" + pupils + "]";
     }
 
 }
