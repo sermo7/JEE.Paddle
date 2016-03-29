@@ -25,6 +25,7 @@ public class TokenTest {
     	dateToTest.add(Calendar.MINUTE, -60);
     	tokenExpired.setCreationDate(dateToTest);
     	assertTrue(tokenExpired.hasExpired());
+    	//System.out.println(tokenExpired.getValue());
     }
 
 }

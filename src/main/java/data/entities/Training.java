@@ -1,5 +1,6 @@
 package data.entities;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -126,7 +127,9 @@ public class Training {
 
     @Override
     public String toString() {
-        return "Training [id=" + id + ", courtId=" + court.getId() + ", startDate=" + startDate + ", finishDate=" + finishDate + ", trainer=" + trainer + ", + pupils=" + pupils + "]";
+    	String startDateFormatString = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(this.getStartDate().getTime());
+    	String finishDateFormatString = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(this.getFinishDate().getTime());
+        return "Training [id=" + id + ", courtId=" + court.getId() + ", startDate=" + startDateFormatString + ", finishDate=" + finishDateFormatString + ", trainer=" + trainer + ", pupils=" + pupils + "]";
     }
 
 }
