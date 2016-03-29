@@ -53,6 +53,14 @@ public class Training {
         this.finishDate = fdate;
         this.pupils = new ArrayList<User>();
     }
+    
+    public Training(Court court, User trainer, Calendar sdate) {
+        this.court = court;
+        this.trainer = trainer;
+        this.startDate = sdate;
+        this.pupils = new ArrayList<User>();
+    }
+
 
 
     public List<User> getPupils() {
