@@ -3,7 +3,6 @@ package data.entities;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -71,6 +70,9 @@ public class Training {
     	return fDate;
     }
 
+    public int obtainMaxPupils(){
+    	return MAX_PUPILS;
+    }
 
 
     public List<User> getPupils() {
