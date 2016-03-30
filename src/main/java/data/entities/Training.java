@@ -3,6 +3,7 @@ package data.entities;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -39,33 +40,33 @@ public class Training {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<User> pupils;
     
-    public Training(Court court, User trainer, Calendar sdate, Calendar fdate, List<User> pupils) {
+    public Training(Court court, User trainer, Calendar sDate, Calendar fDate, List<User> pupils) {
         this.court = court;
         this.trainer = trainer;
-        this.startDate = sdate;
-        this.finishDate = fdate;
+        this.startDate = sDate;
+        this.finishDate = fDate;
         this.pupils = pupils;
     }
     
-    public Training(Court court, User trainer, Calendar sdate, Calendar fdate) {
+    public Training(Court court, User trainer, Calendar sDate, Calendar fDate) {
         this.court = court;
         this.trainer = trainer;
-        this.startDate = sdate;
-        this.finishDate = fdate;
+        this.startDate = sDate;
+        this.finishDate = fDate;
         this.pupils = new ArrayList<User>();
     }
     
-    public Training(Court court, User trainer, Calendar sdate) {
+    public Training(Court court, User trainer, Calendar sDate) {
         this.court = court;
         this.trainer = trainer;
-        this.startDate = sdate;
-        this.finishDate = addTimeTraining(sdate);
+        this.startDate = sDate;
+        this.finishDate = addTimeTraining(sDate);
         this.pupils = new ArrayList<User>();
     }
     
     
     public static Calendar addTimeTraining(Calendar sDate){
-    	Calendar fDate = sDate;
+    	Calendar fDate = (Calendar) sDate.clone();
     	fDate.add(Calendar.MINUTE, TRAINING_MINUTES_TIME);
     	return fDate;
     }
