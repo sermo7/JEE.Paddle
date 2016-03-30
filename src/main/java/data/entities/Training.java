@@ -18,6 +18,7 @@ import javax.persistence.ManyToOne;
 public class Training {
 
 	public static final int MAX_PUPILS = 4;
+	public static final int TRAINING_MINUTES_TIME = 60;
 		
     @Id
     @GeneratedValue
@@ -58,7 +59,15 @@ public class Training {
         this.court = court;
         this.trainer = trainer;
         this.startDate = sdate;
+        this.finishDate = addTimeTraining(sdate);
         this.pupils = new ArrayList<User>();
+    }
+    
+    
+    public static Calendar addTimeTraining(Calendar sDate){
+    	Calendar fDate = sDate;
+    	fDate.add(Calendar.MINUTE, TRAINING_MINUTES_TIME);
+    	return fDate;
     }
 
 
