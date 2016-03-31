@@ -56,5 +56,20 @@ public class CourtPresenter {
         modelAndView.addObject("courtList", courtDao.findAll());
         return modelAndView;
     }
+    
+    @RequestMapping(value = {"/delete-court/{id}"})
+    public String deleteCourt(@PathVariable int id, Model model) {
+        courtDao.delete(courtDao.findOne(id));
+        model.addAttribute("courtList", courtDao.findAll());
+        return "/jsp/courtList";
+    }
+
+    @RequestMapping(value = "/create-court", method = RequestMethod.GET)
+    public String createCourt(Model model) {
+        Court newCourt = new Court();
+    	model.addAttribute("court", newCourt);
+        return "/jsp/createCourt";
+    }  
+    
 
 }
