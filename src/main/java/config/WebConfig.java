@@ -37,9 +37,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         viewResolver.setViewClass(JstlView.class);
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
-        viewResolver.setOrder(2);
-        // Incompatible con "redirect:/action"
-        viewResolver.setViewNames("jsp/*", "bootstrap/*");
         return viewResolver;
     }
     
