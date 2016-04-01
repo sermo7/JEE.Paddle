@@ -11,7 +11,7 @@
 
 	<p><a href="<c:url value='/court-list'/>">Pistas</a></p>
 	<p><a href="<c:url value='/user-list'/>">Usuarios</a></p>
-	<p><a href="<c:url value='/create-user'/>">Reservas</a></p>
+	<p><a href="<c:url value='/reserve-list'/>">Reservas</a></p>
 
 	<p>UPM-MIW --- ${now}</p>
 </body>
