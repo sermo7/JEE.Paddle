@@ -13,13 +13,10 @@
 		<thead>
 			<tr>
 				<th>Id</th>
-				<th>Name</th>
-				<th>Age</th>
-				<th>Email</th>
+				<th>UserName</th>
+				<th>Mail</th>
 				<th>Password</th>
-				<th>NativeLanguage</th>
-				<th>Languages</th>
-				<th>Description</th>
+				<th>Birthdate</th>
 				<th>#</th>
 			</tr>
 		</thead>
@@ -27,13 +24,10 @@
 			<c:forEach items="${userList}" var="user">
 				<tr>
 					<td>${user.id}</td>
-					<td>${user.name}</td>
-					<td>${user.age}</td>
-					<td>${user.email}</td>
+					<td>${user.username}</td>
+					<td>${user.mail}</td>
 					<td>${user.password}</td>
-					<td>${user.nativeLanguage}</td>
-					<td>${user.languages}</td>
-					<td>${user.description}</td>
+					<td>${user.birthDate}</td>
 					<td><a href="<c:url value='/delete-user/${user.id}' />">delete</a></td>
 				</tr>
 			</c:forEach>
