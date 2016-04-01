@@ -3,7 +3,7 @@
 
  A Realizado.
  B Generada entidad e interfaces, pero no están realizadas todas las funciones de gestión.
- A Realizados los tests correspondientes a los token y a la creación de entidad e interfaces.
+ C Realizados los tests correspondientes a los token y a la creación de entidad e interfaces.
 
 #### API
 
