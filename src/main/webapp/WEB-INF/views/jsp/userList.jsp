@@ -25,7 +25,7 @@
 				<tr>
 					<td>${user.id}</td>
 					<td>${user.username}</td>
-					<td>${user.mail}</td>
+					<td>${user.email}</td>
 					<td>${user.password}</td>
 					<td>${user.birthDate}</td>
 					<td><a href="<c:url value='/delete-user/${user.id}' />">delete</a></td>
